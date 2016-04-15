@@ -1,0 +1,15 @@
+{
+  "name": "numbers",
+  "version": "0.0.1",
+  "description": "These Are The Numbers",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "latest",
+    "gulp": "latest"
+  }
+}
