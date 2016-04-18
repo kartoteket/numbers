@@ -9,7 +9,15 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "browserify": "latest",
-    "gulp": "latest"
+    "watchify": "latest",
+    "node-sass": "^3.4.2",
+    "postcss-cli": "^2.5.1"
+  },
+  "dependencies": {
+    "d3": "^3.5.16",
+    "page": "^1.7.1",
+    "ractive": "^0.7.3"
   }
 }
