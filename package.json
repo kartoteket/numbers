@@ -1,15 +1,24 @@
 {
   "name": "numbers",
   "version": "0.0.1",
+  "private": true,
   "description": "These Are The Numbers",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kartoteket/numbers.git"
+  },
+  "author": "Kartoteket",
+  "contributors" : [
+    "Bård Røtzer <bard@kartoteket.as>",
+    "Svale Fossåskaret <svale@kartoteket.as>"
+  ],
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass --output-style compressed -o dist/css src/scss",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "browserify": "latest",
