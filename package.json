@@ -18,7 +18,7 @@
 
     "test": "echo \"Error: no test specified\" && exit 1",
 
-    "build:clean": "rm -r dist/*",
+    "build:clean": "rm -rf dist/*",
     "build:css": "npm run scss && npm run autoprefixer",
     "build:js": "browserify src/js/main.js | mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
     "build": "npm run build:css && npm run build:js",
