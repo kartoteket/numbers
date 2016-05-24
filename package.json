@@ -15,7 +15,6 @@
   ],
   "main": "index.html",
   "scripts": {
-
     "test": "echo \"Error: no test specified\" && exit 1",
 
     "build:clean": "rm -rf dist/*",
@@ -24,18 +23,35 @@
     "build": "npm run build:css && npm run build:js",
     "prebuild": "npm run build:clean",
 
-    "watch-js": "watchify src/app.js -o dist/main.js --debug --verbose",
+    "watch:js": "watchify src/js/main.js -o dist/js/main.js --debug --verbose",
+    "watch:js-plugins": "onchange 'src/js/plugins/*.js' -v -- npm run vendor",
+    "watch:js-vendor": "onchange 'src/js/vendor/*.js' -v -- npm run vendor",
+    "watch:html": "onchange 'src/*.html' -v -- npm run html",
+    "watch:images": "onchange 'src/assets/*.*' -v -- npm run assets",
 
+    "//" : "Replace parallellshell with https://github.com/mysticatea/npm-run-all",
+    "watch": "parallelshell 'npm run watch:js-plugins' 'npm run watch:js-vendor' 'npm run watch:js' 'npm run watch:html' 'npm run watch:images' 'livereload ./dist'",
+
+    "plugins": "cat src/js/plugins/*.js > dist/js/plugins.js",
+    "vendor" : "cp -R src/js/vendor/ dist/js/vendor/",
+    "html": "cp src/index.html dist/",
+    "images": "cp -R src/images/ dist/images/",
     "scss": "node-sass --output-style compressed -o dist/css src/scss",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
     "lint": "eslint src/js",
     "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js"
+
+
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "browserify": "latest",
     "eslint": "^2.8.0",
+    "livereload": "^0.4.1",
     "node-sass": "^3.4.2",
+    "onchange": "^2.4.0",
+    "//" : "Replace parallellshell with https://github.com/mysticatea/npm-run-all",
+    "parallelshell": "latest",
     "postcss-cli": "^2.5.1",
     "uglify-js": "^2.6.2",
     "watchify": "latest"
