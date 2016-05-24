@@ -1,10 +1,10 @@
-module.exports = barChart;
+// modules
+var d3 = require('d3');
 
+module.exports = barChart;
 
 function barChart () {
 
-  // modules
-  var d3 = require('d3');
 
   //config options
   var width       = 500
