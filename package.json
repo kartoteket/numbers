@@ -14,22 +14,17 @@
     "Svale Fossåskaret <svale@kartoteket.as>"
   ],
   "main": "index.html",
+  "bin": {
+    "ractivate": "node_modules/ractivate/index.js"
+  },
   "scripts": {
 
     "test": "echo \"Error: no test specified\" && exit 1",
 
-    "build:clean": "rm -rf dist/*",
-    "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "browserify src/js/main.js | mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
-    "build": "npm run build:css && npm run build:js",
-    "prebuild": "npm run build:clean",
-
-    "watch-js": "watchify src/app.js -o dist/main.js --debug --verbose",
-
-    "scss": "node-sass --output-style compressed -o dist/css src/scss",
-    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "clean": "npm run build -- clean",
+    "build": "./bin/build.sh",
+    "watch-js": "./bin/watch.sh",
     "lint": "eslint src/js",
-    "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -38,11 +33,13 @@
     "node-sass": "^3.4.2",
     "postcss-cli": "^2.5.1",
     "uglify-js": "^2.6.2",
-    "watchify": "latest"
+    "watchify": "latest",
+    "ractivate": "latest"
   },
   "dependencies": {
     "d3": "^3.5.16",
     "page": "^1.7.1",
-    "ractive": "^0.7.3"
+    "ractive": "^0.7.3",
+    "underscore": "latest"
   }
 }
