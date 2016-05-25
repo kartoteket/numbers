@@ -17,7 +17,14 @@ jsbuild()
 	echo '  PERFORMING JS BUILD'
 	echo '#######################'
 	echo ''
-	browserify -t ractivate src/js/main.js | mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js
+	browserify -t ractivate src/js/main.js | mkdir -p dist/js & 
+	uglifyjs src/js/*.js -m -o dist/js/app.js & 
+	uglifyjs src/js/*.js -m -c -o dist/js/app.min.js &
+	mkdir -p dist/js/vendor &
+	cp src/js/vendor/*.js dist/js/vendor/ &
+	# this is for dev,
+	# will be removed once we vae a stage | dev | prod setup
+	cp src/js/main.js dist/js/main.js
 	echo ''
 	echo 'DONE!'
 	echo ''
