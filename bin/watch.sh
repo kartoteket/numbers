@@ -17,10 +17,6 @@ elif test "$1" == "assets"
 	then
 	onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/
 
-elif test "$1" == "all"
-	then
-	echo 'all'
-
 elif test "$1" == "help"
 	then
 
