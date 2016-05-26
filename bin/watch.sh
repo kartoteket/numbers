@@ -40,21 +40,25 @@ elif test "$1" == "help"
 	echo ' will listen to changes to all js files and trigger livereload in browser'
 
 else
+	echo ' type watch.sh -- help for a list of commands'
+	echo ''
 	echo '#######################'
 	echo '       WATCH ALL'
 	echo '#######################'
-	echo ''
-	onchange 'src/index.html' -v -- cp src/index.html dist/ &
-	watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
-	onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
-	node-sass --output-style compressed -o dist/css src/scss -w 
-fi
 
-if test "$1" == "livereload" -o "$2" == "livereload"
-	then
-	echo '#######################'
-	echo '  LIVE RELOAD ENABLED'
-	echo '#######################'
-	echo ''
-	livereload ./dist
+	if test "$1" == 'livereload'
+		then
+			echo '   WITH LIVE RELOAD'
+			echo '#######################'
+			node-sass --output-style uncompressed -o dist/css src/scss -w
+			onchange 'src/index.html' -v -- cp src/index.html dist/ &
+			watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
+			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
+			livereload ./dist
+	else
+			node-sass --output-style uncompressed -o dist/css src/scss -w
+			onchange 'src/index.html' -v -- cp src/index.html dist/ &
+			watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
+			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
+	fi
 fi
