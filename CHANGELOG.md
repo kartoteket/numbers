@@ -8,6 +8,7 @@ This project adheres (well, maybe not quite) to [Semantic Versioning](http://sem
 ## [UNRELEASED]
 ### Added
 - Initial package.json and build scripts
+- Added leaflet map component
 
 
 [//]: ##############################################
