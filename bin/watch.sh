@@ -17,10 +17,6 @@ elif test "$1" == "assets"
 	then
 	onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/
 
-elif test "$1" == "all"
-	then
-	echo 'all'
-
 elif test "$1" == "help"
 	then
 
@@ -50,13 +46,13 @@ else
 		then
 			echo '   WITH LIVE RELOAD'
 			echo '#######################'
-			node-sass --output-style uncompressed -o dist/css src/scss -w
+			node-sass --output-style uncompressed -o dist/css src/scss -w &
 			onchange 'src/index.html' -v -- cp src/index.html dist/ &
 			watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
 			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
 			livereload ./dist
 	else
-			node-sass --output-style uncompressed -o dist/css src/scss -w
+			node-sass --output-style uncompressed -o dist/css src/scss -w &
 			onchange 'src/index.html' -v -- cp src/index.html dist/ &
 			watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
 			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
