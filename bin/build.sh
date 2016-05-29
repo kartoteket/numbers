@@ -67,8 +67,7 @@ if test "$1" == "js"
 
 elif test "$1" == "css"
 	then
-	cssbuild
-	postcssbuild
+	cssbuild && postcssbuild
 
 elif test "$1" == "html"
 	then
@@ -94,11 +93,14 @@ elif test "$1" == "help"
 	echo ''
 	echo ''
 else
-	cleanbuild
-	jsbuild
-	cssbuild
-	postcssbuild
-	htmlbuild
+	# lets run these sequentially.
+	cleanbuild;
+	htmlbuild;
+	(cssbuild && postcssbuild);
+	jsbuild;
+
+	# optional and quicker by running task in background. but less trancparent and more error prone
+	# cleanbuild && (htmlbuild & (cssbuild && postcssbuild) & jsbuild);
 fi
 
 #npm run build:css && npm run build:js && npm run build:html
