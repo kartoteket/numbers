@@ -7,7 +7,7 @@ cleanbuild()
 	echo ''
 	rm -rf dist/*
 	echo ''
-	echo 'DONE!'
+	echo 'CLEANING DONE!'
 	echo ''
 }
 
@@ -26,7 +26,7 @@ jsbuild()
 	# will be removed once we vae a stage | dev | prod setup
 	cp src/js/main.js dist/js/main.js
 	echo ''
-	echo 'DONE!'
+	echo 'JS DONE!'
 	echo ''
 }
 
@@ -39,7 +39,7 @@ cssbuild()
 	node-sass --output-style compressed -o dist/css src/scss
 	cp node_modules/leaflet/dist/leaflet.css dist/css
 	echo ''
-	echo 'DONE!'
+	echo 'CSS DONE!'
 	echo ''
 }
 
@@ -56,7 +56,7 @@ htmlbuild()
 	echo ''
 	cp src/index.html dist/index.html
 	echo ''
-	echo 'DONE!'
+	echo 'HTML DONE!'
 	echo ''
 }
 
