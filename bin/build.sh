@@ -78,15 +78,8 @@ elif test "$1" == "clean"
 	then
 	cleanbuild
 
-elif test "$1" == "all"
+elif test "$1" == "help"
 	then
-	cleanbuild
-	jsbuild
-	cssbuild
-	postcssbuild
-	htmlbuild
-
-else
 	echo '#######################'
 	echo '  NO COMMAND CHOSEN'
 	echo '#######################'
@@ -100,6 +93,12 @@ else
 	echo ' -- clean  - Clean the repo (cal also use npm run clean)'
 	echo ''
 	echo ''
+else
+	cleanbuild
+	jsbuild
+	cssbuild
+	postcssbuild
+	htmlbuild
 fi
 
 #npm run build:css && npm run build:js && npm run build:html
