@@ -40,14 +40,14 @@ cssbuild()
 	echo ''
 	node-sass --output-style compressed -o dist/css src/scss
 	cp node_modules/leaflet/dist/leaflet.css dist/css
-	echo ''
-	echo 'CSS DONE!'
-	echo ''
 }
 
 postcssbuild()
 {
 	postcss -u autoprefixer -r dist/css/*
+	echo ''
+	echo 'CSS DONE!'
+	echo ''
 }
 
 htmlbuild()
