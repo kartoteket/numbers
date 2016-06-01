@@ -22,19 +22,20 @@ PieChartComponent = Ractive.extend({
   },
 
   onrender: function () {
-    var data = [
-                {label:'Nord-Amerika', values: 6985, color: '#ff0000'},
-                {label:'Sør-Amerika', values: 20955, color: '#00ff00'},
-                {label:'Afrika', values: 83820, color: '#0000ff'},
-                {label:'Asia', values: 195580, color: '#ffff00'},
-                {label:'Europa', values: 384175, color: '#00ffff'}
-                ];
+    d3.json('data/' + this.get('initialData'), _.bind(this.renderData, this));
+
+  },
+  /**
+   * Initial render function, based on the data received from the onrender function
+   * @param  {Json} result - json data (label, values, color)
+   */
+  renderData: function (result) {
     var boundMethod = _.bind(this.resetData, this);
     this.pie =  piechart()
                     .height(300)
                     .width(300)
                     .padding(20)
-                    .data(data)
+                    .data(result.data)
                     .on('click', boundMethod);
 
                     console.log('drawing pie');
@@ -47,46 +48,46 @@ PieChartComponent = Ractive.extend({
   },
 
   resetData: function (d) {
-    var label = d.data.label
-      , fileName
+    var fileName = this.getFileName(d.data.label)
       , data
-      , colors
+      , color
       , that = this
     ;
 
-    // simple swithh here to get the file
-    switch (label) {
-    case 'Europa':
-      fileName = 'europa_innvandring.json';
-      break;
-    case 'Afrika':
-      fileName = 'afrika_innvandring.json';
-      break;
-    case 'Nord-Amerika':
-      fileName = 'nordamerika_innvandring.json';
-      break;
-    case 'Sør-Amerika':
-      fileName = 'soramerika_innvandring.json';
-      break;
-    case 'Asia':
-      fileName = 'asia_innvandring.json';
-      break;
-    }
-
+    // load the data
     d3.json('data/' + fileName, function (result) {
+      //Create a color scale
       color = d3.scale.linear()
                 .domain([1,result.data.length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]); // make this in line with the color we came from
       // apply a color to all the datanodes
       data = _.map(result.data, function (d, i) {
-        d.color = color(i);
+        d.color = d.color || color(i);
         return d;
       });
+      // set the new data
       that.pie.data(data);
-
     });
     console.log(d);
+  },
+
+  getFileName: function (label) {
+       // simple swithh here to get the file
+    switch (label) {
+    case 'Europa':
+      return 'europa_innvandring.json';
+    case 'Afrika':
+      return 'afrika_innvandring.json';
+    case 'Nord-Amerika':
+      return 'nordamerika_innvandring.json';
+    case 'Sør-Amerika':
+      return 'soramerika_innvandring.json';
+    case 'Asia':
+      return 'asia_innvandring.json';
+    default:
+      return this.get('initialData');
+    }
   }
 });
 
