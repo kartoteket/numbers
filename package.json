@@ -24,7 +24,17 @@
     "watch": "./bin/watch.sh",
     "lint": "eslint src/js"
   },
+  "aliasify": {
+    "aliases": {
+      "utils/clientUrl": "./src/js/utils/clientUrl",
+      "d3by5-pie-chart": "./src/js/lib/d3by5-pie-chart"
+    },
+    "replacements": {
+      "components/(\\w+)": "./src/js/components/$1"
+    }
+  },
   "devDependencies": {
+    "aliasify": "^2.0.0",
     "autoprefixer": "^6.3.6",
     "browserify": "latest",
     "eslint": "^2.8.0",
@@ -32,9 +42,9 @@
     "node-sass": "^3.4.2",
     "onchange": "^2.4.0",
     "postcss-cli": "^2.5.1",
+    "ractivate": "latest",
     "uglify-js": "^2.6.2",
-    "watchify": "latest",
-    "ractivate": "latest"
+    "watchify": "latest"
   },
   "dependencies": {
     "d3": "^3.5.16",

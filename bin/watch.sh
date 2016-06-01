@@ -3,7 +3,7 @@
 # this is the entry point
 if test "$1" == "js"
 	then
-	watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose
+	watchify -t aliasify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose
 
 elif test "$1" == "css"
 	then
@@ -48,13 +48,13 @@ else
 			echo '#######################'
 			node-sass --output-style uncompressed -o dist/css src/scss -w &
 			onchange 'src/index.html' -v -- cp src/index.html dist/ &
-			watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
+			watchify -t aliasify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
 			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
 			livereload ./dist
 	else
 			node-sass --output-style uncompressed -o dist/css src/scss -w &
 			onchange 'src/index.html' -v -- cp src/index.html dist/ &
-			watchify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
+			watchify -t aliasify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
 			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
 	fi
 fi

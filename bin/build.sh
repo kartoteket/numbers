@@ -18,7 +18,7 @@ jsbuild()
 	echo '#######################'
 	echo ''
 	mkdir -p dist/js;
-	browserify -t ractivate src/js/main.js  | uglifyjs -m -c > dist/js/main.js
+	browserify -t aliasify -t ractivate src/js/main.js  | uglifyjs -m -c > dist/js/main.js
 #	uglifyjs src/js/*.js -m -o dist/js/app.js &
 #	uglifyjs src/js/*.js -m -c -o dist/js/app.min.js &
 	mkdir -p dist/js/vendor;
