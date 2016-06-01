@@ -62,6 +62,14 @@ htmlbuild()
 	echo ''
 }
 
+databuild()
+{
+	echo 'moving data files'
+	mkdir -p dist/data;
+	cp data/* dist/data/;
+	echo 'done'
+}
+
 # this is the entry point
 if test "$1" == "js"
 	then
@@ -98,6 +106,7 @@ else
 	# lets run these sequentially.
 	cleanbuild;
 	htmlbuild;
+	databuild;
 	(cssbuild && postcssbuild);
 	jsbuild;
 

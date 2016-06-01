@@ -1,0 +1,10 @@
+{
+	"data":[
+		{"label":"USA","values":9120},
+		{"label":"Canada","values":1952}
+	],
+	"sources": [
+		{"name":"Kommuneprofil", "url": "http://www.kommuneprofilen.no/Profil/Befolkning/DinRegion/bef_innvandrere_land_region.aspx"},
+		{"name":"SSB, Statistisk Sentralyrå", "url": "http://www.ssb.no/befolkning/statistikker/innvbef/aar/2016-03-03#content"}
+	]
+}
