@@ -1,5 +1,6 @@
-var Ractive = require('ractive')
-  , lMap = require('../../components/map/map')
+var Ractive   = require('ractive')
+  , lMap      = require('components/map/map')
+  , pieChart  = require('components/charts/PieChart')
   , main
 ;
 
@@ -8,7 +9,8 @@ main = Ractive.extend({
   template: require('./template.html'),//temp,//'<div>{{message}}</div>',
 
   components: {
-    map: lMap
+    Map: lMap,
+    PieChart: pieChart
   },
 
   oninit: function () {
