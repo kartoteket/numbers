@@ -1,0 +1,24 @@
+{
+	"data":[
+		{"label":"Algerie", "values":1752},
+		{"label":"Gambia", "values":1728},
+		{"label":"Uganda", "values":1470},
+		{"label":"Egypt", "values":1258},
+		{"label":"Tunisia", "values":1399},
+		{"label":"Liberia", "values":1183},
+		{"label":"Somalia", "values":40100},
+		{"label":"Eritrea", "values":20701},
+		{"label":"Marokko", "values":9647},
+		{"label":"Etiopia", "values":9617},
+		{"label":"Sudan", "values":4319},
+		{"label":"Kongo", "values":2846},
+		{"label":"Ghana", "values":2665},
+		{"label":"Nigeria", "values":2274},
+		{"label":"Kenya", "values":1983},
+		{"label":"Burundi", "values":1401}
+	],
+	"sources": [
+		{"name":"Kommuneprofil", "url": "http://www.kommuneprofilen.no/Profil/Befolkning/DinRegion/bef_innvandrere_land_region.aspx"},
+		{"name":"SSB, Statistisk Sentralyrå", "url": "http://www.ssb.no/befolkning/statistikker/innvbef/aar/2016-03-03#content"}
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"data":[
+          {"label":"Nord-Amerika", "values": 6985, "color": "#ff0000"},
+          {"label":"Sør-Amerika", "values": 20955, "color": "#00ff00"},
+          {"label":"Afrika", "values": 83820, "color": "#0000ff"},
+          {"label":"Asia", "values": 195580, "color": "#ffff00"},
+          {"label":"Europa", "values": 384175, "color": "#00ffff"}
+	],
+	"sources": [
+		{"name":"SSB, Statistisk Sentralyrå", "url": "http://www.ssb.no/befolkning/statistikker/innvbef/aar/2016-03-03#content"}
+	]
+}
+

@@ -18,7 +18,7 @@ jsbuild()
 	echo '#######################'
 	echo ''
 	mkdir -p dist/js;
-	browserify -t ractivate src/js/main.js  | uglifyjs -m -c > dist/js/main.js
+	browserify -t aliasify -t ractivate src/js/main.js  | uglifyjs -m -c > dist/js/main.js
 #	uglifyjs src/js/*.js -m -o dist/js/app.js &
 #	uglifyjs src/js/*.js -m -c -o dist/js/app.min.js &
 	mkdir -p dist/js/vendor;
@@ -62,6 +62,14 @@ htmlbuild()
 	echo ''
 }
 
+databuild()
+{
+	echo 'moving data files'
+	mkdir -p dist/data;
+	cp data/* dist/data/;
+	echo 'done'
+}
+
 # this is the entry point
 if test "$1" == "js"
 	then
@@ -98,6 +106,7 @@ else
 	# lets run these sequentially.
 	cleanbuild;
 	htmlbuild;
+	databuild;
 	(cssbuild && postcssbuild);
 	jsbuild;
 

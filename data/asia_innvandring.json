@@ -1,0 +1,28 @@
+{
+	"data":[
+		{"label":"Kasakhstan", "values": 1047},
+		{"label":"Pakistan", "values": 36026},
+		{"label":"Irak", "values": 31490},
+		{"label":"Vietnam", "values": 22363},
+		{"label":"Filippinene", "values": 21945},
+		{"label":"Iran", "values": 20461},
+		{"label":"Thailand", "values": 18324},
+		{"label":"Tyrkia", "values": 17870},
+		{"label":"Afghanistan", "values": 17519},
+		{"label":"Sri Lanka", "values": 15203},
+		{"label":"India", "values": 14695},
+		{"label":"Syria", "values": 10902},
+		{"label":"Kina", "values": 10197},
+		{"label":"Palestina", "values": 4050},
+		{"label":"Myanmar", "values": 3843},
+		{"label":"Libanon", "values": 2864},
+		{"label":"Nepal", "values": 1689},
+		{"label":"Indonesia", "values": 1525},
+		{"label":"Bangladesh", "values": 1217},
+		{"label":"Sør-Korea", "values": 1154}
+	],
+	"sources": [
+		{"name":"Kommuneprofil", "url": "http://www.kommuneprofilen.no/Profil/Befolkning/DinRegion/bef_innvandrere_land_region.aspx"},
+		{"name":"SSB, Statistisk Sentralyrå", "url": "http://www.ssb.no/befolkning/statistikker/innvbef/aar/2016-03-03#content"}
+	]
+}

@@ -1,0 +1,42 @@
+{
+	"data":[
+		{"label":"Polen", "values":105725},
+		{"label":"Litauen", "values":41626},
+		{"label":"Sverige", "values":39955},
+		{"label":"Tyskland", "values":27770},
+		{"label":"Danmark", "values":21762},
+		{"label":"Russland", "values":20012},
+		{"label":"Bosnia-Hercegovina", "values":17402},
+		{"label":"Storbritannia", "values":15447},
+		{"label":"Kosovo", "values":14959},
+		{"label":"Island", "values":9005},
+		{"label":"Nederland", "values":8596},
+		{"label":"Finland", "values":7012},
+		{"label":"Bulgaria", "values":6920},
+		{"label":"Spania", "values":6100},
+		{"label":"Frankrike", "values":5805},
+		{"label":"Serbia", "values":5633},
+		{"label":"Estland", "values":5468},
+		{"label":"Ukraina", "values":5088},
+		{"label":"Kroatia", "values":4501},
+		{"label":"Latvia", "values":10870},
+		{"label":"Ungarn", "values":4451},
+		{"label":"Romania", "values":14928},
+		{"label":"Slovakia", "values":4374},
+		{"label":"Italia", "values":4096},
+		{"label":"Portugal", "values":3287},
+		{"label":"Makedonia", "values":3875},
+		{"label":"Hellas", "values":2439},
+		{"label":"Tsjekkia", "values":2466},
+		{"label":"Sveits", "values":1516},
+		{"label":"Østerrike", "values":1365},
+		{"label":"Belgia", "values":1284},
+		{"label":"Hviterussland", "values":1165},
+		{"label":"Australia", "values":1583},
+		{"label":"Irland", "values":1076}
+	],
+	"sources": [
+		{"name":"Kommuneprofil", "url": "http://www.kommuneprofilen.no/Profil/Befolkning/DinRegion/bef_innvandrere_land_region.aspx"},
+		{"name":"SSB, Statistisk Sentralyrå", "url": "http://www.ssb.no/befolkning/statistikker/innvbef/aar/2016-03-03#content"}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"data":[
+		{"label":"Brasil", "values":4482},
+		{"label":"Chile", "values":7963},
+		{"label":"Colombia", "values":1997},
+		{"label":"Peru", "values":1402},
+		{"label":"Mexico", "values":1233},
+		{"label":"Cuba", "values":1059},
+		{"label":"Venezuela", "values":1114}
+	],
+	"sources": [
+		{"name":"Kommuneprofil", "url": "http://www.kommuneprofilen.no/Profil/Befolkning/DinRegion/bef_innvandrere_land_region.aspx"},
+		{"name":"SSB, Statistisk Sentralyrå", "url": "http://www.ssb.no/befolkning/statistikker/innvbef/aar/2016-03-03#content"}
+	]
+}
