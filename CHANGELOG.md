@@ -5,7 +5,7 @@ This project adheres (well, maybe not quite) to [Semantic Versioning](http://sem
 
 
 
-## [UNRELEASED]
+## [0.0.1] - 2016-06-01
 ### Added
 - Initial package.json and build scripts
 - Added leaflet map component
@@ -15,7 +15,7 @@ This project adheres (well, maybe not quite) to [Semantic Versioning](http://sem
 
 
 [//]: ##############################################
-
+<!---
 [//]: # (Legend)
 [Added]:        <> (for new features.)
 [Changed]:      <> (for changes in existing functionality.)
@@ -23,4 +23,4 @@ This project adheres (well, maybe not quite) to [Semantic Versioning](http://sem
 [Removed]:      <> (for deprecated features removed in this release.)
 [Fixed]:        <> (for any bug fixes.)
 [Security]:     <> (to invite users to upgrade in case of vulnerabilities.)
-
+--->
