@@ -7,6 +7,9 @@ var Ractive   = require('ractive')
 main = Ractive.extend({
   el: '#js-app',
   template: require('./template.html'),//temp,//'<div>{{message}}</div>',
+  data: {
+    initialData: 'world_innvandring.json'
+  },
 
   components: {
     Map: lMap,
