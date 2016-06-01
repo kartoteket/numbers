@@ -10,6 +10,8 @@ This project adheres (well, maybe not quite) to [Semantic Versioning](http://sem
 - Initial package.json and build scripts
 - Added leaflet map component
 - Added copy leaflet.css on build
+- Add d3by5-pie-chart to library
+- Add Component that creates Pie Charts
 
 
 [//]: ##############################################
