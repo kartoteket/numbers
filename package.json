@@ -30,7 +30,8 @@
       "d3by5-pie-chart": "./src/js/lib/d3by5-pie-chart"
     },
     "replacements": {
-      "components/(\\w+)": "./src/js/components/$1"
+      "components/(\\w+)": "./src/js/components/$1",
+      "lib/(\\w+)": "./src/js/lib/$1"
     }
   },
   "devDependencies": {
