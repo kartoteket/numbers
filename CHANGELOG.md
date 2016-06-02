@@ -3,7 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres (well, maybe not quite) to [Semantic Versioning](http://semver.org/).
 
 
-
+## [Unreleased]
+### Added
+- Added Bar graph component to dreaw bar graphs
 
 ## [0.0.1] - 2016-06-01
 ### Added
