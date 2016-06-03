@@ -5,7 +5,8 @@ This project adheres (well, maybe not quite) to [Semantic Versioning](http://sem
 
 ## [Unreleased]
 ### Added
-- Added Bar graph component to dreaw bar graphs
+- Added Bar graph component to draw bar graphs
+
 
 ## [0.0.1] - 2016-06-01
 ### Added

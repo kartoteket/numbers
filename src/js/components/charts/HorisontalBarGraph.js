@@ -32,28 +32,21 @@ HorisontalBarGraph = Ractive.extend({
   renderData: function (result) {
     var boundMethod = _.bind(this.resetData, this)
       , data
-      , color = d3.scale.linear()
-                .domain([1,result.data.length])
-                .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]); // make this in line with the color we came from
-      // apply a color to all the datanodes
-      data = _.map(result.data, function (d, i) {
-        d.color = d.color || color(i);
-        return d;
-      });
+    ;
 
     this.bar =  barGraph()
                     .height(300)
                     .width(300)
                     .padding(20)
                     .fillColor('coral')
-                    .data(data)
+                    .data(result.data)
                     .on('click', boundMethod);
 
-                    console.log('drawing bar');
+    var caller = _.bind(this.bar.init, this.bar);
+    console.log('drawing bar');
 
     d3.select('.js-horisontal-bar-graph')
-      .call(this.bar);
+      .call(caller);
 
   },
 
@@ -67,17 +60,17 @@ HorisontalBarGraph = Ractive.extend({
     // load the data
     d3.json('data/' + fileName, function (result) {
       //Create a color scale
-      color = d3.scale.linear()
-                .domain([1,result.data.length])
-                .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]); // make this in line with the color we came from
-      // apply a color to all the datanodes
-      data = _.map(result.data, function (d, i) {
-        d.color = d.color || color(i);
-        return d;
-      });
+      // color = d3.scale.linear()
+      //           .domain([1,result.data.length])
+      //           .interpolate(d3.interpolateHcl)
+      //           .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]); // make this in line with the color we came from
+      // // apply a color to all the datanodes
+      // data = _.map(result.data, function (d, i) {
+      //   d.color = d.color || color(i);
+      //   return d;
+      // });
       // set the new data
-      that.pie.data(data);
+      that.pie.data(result.data);
     });
     console.log(d);
   },
