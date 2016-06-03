@@ -2,7 +2,7 @@ var Ractive     = require('ractive')
   , d3          = require('d3')
   , _           = require('underscore')
   , clientUrl   = require('utils/clientUrl')
-	, piechart    = require('d3by5-pie-chart')
+	, piechart    = require('lib/d3by5-pie-chart')
 	, PieChartComponent
 ;
 
@@ -39,9 +39,10 @@ PieChartComponent = Ractive.extend({
                     .on('click', boundMethod);
 
                     console.log('drawing pie');
+  var caller = _.bind(this.pie.init, this.pie);
 
     d3.select('.js-pie-chart')
-      .call(this.pie);
+      .call(caller);
 
 
     console.log('rendering chart', this.get('chart.fillColor'));
@@ -56,18 +57,8 @@ PieChartComponent = Ractive.extend({
 
     // load the data
     d3.json('data/' + fileName, function (result) {
-      //Create a color scale
-      color = d3.scale.linear()
-                .domain([1,result.data.length])
-                .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]); // make this in line with the color we came from
-      // apply a color to all the datanodes
-      data = _.map(result.data, function (d, i) {
-        d.color = d.color || color(i);
-        return d;
-      });
       // set the new data
-      that.pie.data(data);
+      that.pie.data(result.data);
     });
     console.log(d);
   },
