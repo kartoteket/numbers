@@ -26,11 +26,11 @@
   },
   "aliasify": {
     "aliases": {
-      "utils/clientUrl": "./src/js/utils/clientUrl",
-      "d3by5-pie-chart": "./src/js/lib/d3by5-pie-chart"
+      "utils/clientUrl": "./src/js/utils/clientUrl"
     },
     "replacements": {
-      "components/(\\w+)": "./src/js/components/$1"
+      "components/(\\w+)": "./src/js/components/$1",
+      "lib/(\\w+)": "./src/js/lib/$1"
     }
   },
   "devDependencies": {
@@ -51,6 +51,9 @@
     "leaflet": "^1.0.0-rc.1",
     "page": "^1.7.1",
     "ractive": "^0.7.3",
-    "underscore": "latest"
+    "underscore": "latest",
+
+    "//": "LOCAL DEPENDENCIES",
+    "d3by5-base-chart": "file:./src/js/lib/d3by5-base-chart"
   }
 }

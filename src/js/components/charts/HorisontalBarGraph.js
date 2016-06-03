@@ -2,17 +2,17 @@ var Ractive     = require('ractive')
   , d3          = require('d3')
   , _           = require('underscore')
   , clientUrl   = require('utils/clientUrl')
-	, piechart    = require('lib/d3by5-pie-chart')
-	, PieChartComponent
+	, barGraph    = require('lib/d3by5-horisontal-bar-graph')
+	, HorisontalBarGraph
 ;
 
-PieChartComponent = Ractive.extend({
-  template: require('./piechartTemplate.html'),
+HorisontalBarGraph = Ractive.extend({
+  template: require('./horisontalBarGraphTemplate.html'),
   pie: null,
 
   data: function () {
     return {
-      chart: {
+      bar: {
         height: 300,
         width: 400,
         data: [10, 20, 30, 40,10, 20, 60],
@@ -22,7 +22,7 @@ PieChartComponent = Ractive.extend({
   },
 
   onrender: function () {
-    d3.json('data/' + this.get('initialData'), _.bind(this.renderData, this));
+    d3.json('data/' + this.get('initialBarData'), _.bind(this.renderData, this));
 
   },
   /**
@@ -30,22 +30,24 @@ PieChartComponent = Ractive.extend({
    * @param  {Json} result - json data (label, values, color)
    */
   renderData: function (result) {
-    var boundMethod = _.bind(this.resetData, this);
-    this.pie =  piechart()
+    var boundMethod = _.bind(this.resetData, this)
+      , data
+    ;
+
+    this.bar =  barGraph()
                     .height(300)
                     .width(300)
                     .padding(20)
+                    .fillColor('coral')
                     .data(result.data)
                     .on('click', boundMethod);
 
-                    console.log('drawing pie');
-  var caller = _.bind(this.pie.init, this.pie);
+    var caller = _.bind(this.bar.init, this.bar);
+    console.log('drawing bar');
 
-    d3.select('.js-pie-chart')
+    d3.select('.js-horisontal-bar-graph')
       .call(caller);
 
-
-    console.log('rendering chart', this.get('chart.fillColor'));
   },
 
   resetData: function (d) {
@@ -57,6 +59,16 @@ PieChartComponent = Ractive.extend({
 
     // load the data
     d3.json('data/' + fileName, function (result) {
+      //Create a color scale
+      // color = d3.scale.linear()
+      //           .domain([1,result.data.length])
+      //           .interpolate(d3.interpolateHcl)
+      //           .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]); // make this in line with the color we came from
+      // // apply a color to all the datanodes
+      // data = _.map(result.data, function (d, i) {
+      //   d.color = d.color || color(i);
+      //   return d;
+      // });
       // set the new data
       that.pie.data(result.data);
     });
@@ -82,4 +94,4 @@ PieChartComponent = Ractive.extend({
   }
 });
 
-module.exports = PieChartComponent;
+module.exports = HorisontalBarGraph;
