@@ -2,7 +2,7 @@ var Ractive     = require('ractive')
   , d3          = require('d3')
   , _           = require('underscore')
   , clientUrl   = require('utils/clientUrl')
-	, piechart    = require('lib/d3by5-pie-chart')
+	, piechart    = require('d3by5-pie-chart')
 	, PieChartComponent
 ;
 

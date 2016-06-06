@@ -2,7 +2,7 @@ var Ractive     = require('ractive')
   , d3          = require('d3')
   , _           = require('underscore')
   , clientUrl   = require('utils/clientUrl')
-	, barGraph    = require('lib/d3by5-horisontal-bar-graph')
+	, barGraph    = require('d3by5-horisontal-bar-graph')
 	, HorisontalBarGraph
 ;
 

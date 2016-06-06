@@ -22,7 +22,9 @@
     "clean": "npm run build -- clean",
     "build": "./bin/build.sh",
     "watch": "./bin/watch.sh",
-    "lint": "eslint src/js"
+    "lint": "eslint src/js",
+    "preinstall": "npm link ../d3by5-horisontal-bar-graph && npm link ../d3by5-pie-chart",
+    "preupdate": "npm link ../d3by5-horisontal-bar-graph && npm link ../d3by5-pie-chart"
   },
   "aliasify": {
     "aliases": {
@@ -48,12 +50,11 @@
   },
   "dependencies": {
     "d3": "^3.5.16",
+    "d3by5-horisontal-bar-graph": "latest",
+    "d3by5-pie-chart": "latest",
     "leaflet": "^1.0.0-rc.1",
     "page": "^1.7.1",
     "ractive": "^0.7.3",
-    "underscore": "latest",
-
-    "//": "LOCAL DEPENDENCIES",
-    "d3by5-base-chart": "file:./src/js/lib/d3by5-base-chart"
+    "underscore": "latest"
   }
 }
