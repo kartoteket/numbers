@@ -7,7 +7,7 @@ if test "$1" == "js"
 
 elif test "$1" == "css"
 	then
-	node-sass --output-style compressed -o -w dist/css src/scss
+	node-sass --output-style uncompressed -o -w dist/css src/scss
 
 elif test "$1" == "html"
 	then
