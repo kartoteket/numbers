@@ -38,7 +38,7 @@ cssbuild()
 	echo '  PERFORMING CSS BUILD'
 	echo '#######################'
 	echo ''
-	node-sass --output-style compressed -o dist/css src/scss
+	node-sass --output-style compressed -o dist/css src/scss &&
 	cp node_modules/leaflet/dist/leaflet.css dist/css
 }
 
@@ -70,25 +70,22 @@ databuild()
 	echo 'done'
 }
 
-# this is the entry point
-if test "$1" == "js"
-	then
-	jsbuild
+allbuild()
+{
+	# lets run these sequentially.
+	cleanbuild;
+	htmlbuild;
+	databuild;
+	(cssbuild && postcssbuild);
+	jsbuild;
 
-elif test "$1" == "css"
-	then
-	cssbuild && postcssbuild
 
-elif test "$1" == "html"
-	then
-	htmlbuild
+	# optional and quicker by running task in background. but less trancparent and more error prone
+	# cleanbuild && (htmlbuild & (cssbuild && postcssbuild) & jsbuild);
+}
 
-elif test "$1" == "clean"
-	then
-	cleanbuild
-
-elif test "$1" == "help"
-	then
+usage()
+{
 	echo '#######################'
 	echo '  NO COMMAND CHOSEN'
 	echo '#######################'
@@ -102,16 +99,37 @@ elif test "$1" == "help"
 	echo ' -- clean  - Clean the repo (cal also use npm run clean)'
 	echo ''
 	echo ''
-else
-	# lets run these sequentially.
-	cleanbuild;
-	htmlbuild;
-	databuild;
-	(cssbuild && postcssbuild);
-	jsbuild;
+}
 
-	# optional and quicker by running task in background. but less trancparent and more error prone
-	# cleanbuild && (htmlbuild & (cssbuild && postcssbuild) & jsbuild);
+##### Default
+if [ $# -lt 1 ]; then
+		allbuild
+        exit
 fi
+
+##### Main
+while [ "$1" != "" ]; do
+    case $1 in
+    	clean )					cleanbuild
+    	                        ;;
+        js )					jsbuild
+                                ;;
+        css )					cssbuild && postcssbuild
+                                ;;
+        html )					htmlbuild
+                                ;;
+        data )					databuild
+                                ;;
+        all )					allbuild
+                                ;;
+        help )         			usage
+                                exit
+                                ;;
+		* )                     usage
+                                exit
+                                ;;
+    esac
+    shift
+done
 
 #npm run build:css && npm run build:js && npm run build:html
