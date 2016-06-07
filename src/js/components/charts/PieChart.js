@@ -35,8 +35,12 @@ PieChartComponent = Ractive.extend({
                     .height(300)
                     .width(300)
                     .padding(20)
+                    .transitionSpeed(500)
                     .data(result.data)
-                    .on('click', boundMethod);
+                    .on('click', boundMethod)
+                    .on('mouseover', function (d) {
+                      console.log(d);
+                    });
 
                     console.log('drawing pie');
   var caller = _.bind(this.pie.init, this.pie);
@@ -58,7 +62,8 @@ PieChartComponent = Ractive.extend({
     // load the data
     d3.json('data/' + fileName, function (result) {
       // set the new data
-      that.pie.data(result.data);
+      that.pie
+          .apply({data: result.data, transition:'fromSelection', target: d});
     });
     console.log(d);
   },
