@@ -21,6 +21,12 @@ HorisontalBarGraph = Ractive.extend({
     };
   },
 
+  oninit: function () {
+    this.on('setAnchor', function (e, anchor) {
+      this.bar.anchor(anchor);
+    });
+  },
+
   onrender: function () {
     d3.json('data/' + this.get('initialBarData'), _.bind(this.renderData, this));
 
@@ -39,6 +45,7 @@ HorisontalBarGraph = Ractive.extend({
                     .width(300)
                     .padding(20)
                     .fillColor('coral')
+                    .anchor('right')
                     .data(result.data)
                     .on('click', boundMethod);
 
