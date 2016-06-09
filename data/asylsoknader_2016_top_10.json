@@ -1,0 +1,23 @@
+{
+	"definition": [
+		{"key": "label","type": "geography", "description": "t-origin-of-asylum-seeker"},
+		{"key": "values","type": "number", "description": "t-number-of-asylum-seekers"}
+	],
+	"data":[
+		{"label": "Syria", "values": 224},
+		{"label": "Afghanistan", "values": 212},
+		{"label": "Irak", "values": 128},
+		{"label": "Eritrea", "values": 112},
+		{"label": "Somalia", "values": 93},
+		{"label": "Etiopia", "values": 85},
+		{"label": "Statsløs", "values": 56},
+		{"label": "Albania", "values": 48},
+		{"label": "Iran", "values": 48},
+		{"label": "Marokko", "values": 38},
+		{"label": "Algerie", "values": 29},
+		{"label": "Russland", "values": 28}
+	],
+	"sources": [
+		{"name":"Utlendingsdirektoratet (UDI)", "url": "https://www.udi.no/statistikk-og-analyse/statistikk/asylsoknader-etter-statsborgerskap-aldersgruppe-og-kjonn-2016/"}
+	]
+}

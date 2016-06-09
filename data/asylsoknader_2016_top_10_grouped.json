@@ -1,0 +1,22 @@
+{
+	"definition": [
+		{"key": "label","type": "geography", "description": "t-origin-of-asylum-seeker"},
+		{"key": "label-level-2","type": "ordinal", "description": "t-demographics"},
+		{"key": "values","type": "number", "description": "t-number-of-asylum-seekers"}
+	],
+	"data":[
+		{"label":"Syria", "keys": ["Kvinner","Menn","Barn"], "values": [49,52,124]},
+		{"label":"Afghanistan", "keys": ["Kvinner","Menn","Barn"], "values": [41,67,156]},
+		{"label":"Irak", "keys": ["Kvinner","Menn","Barn"], "values": [27,54,84]},
+		{"label":"Eritrea", "keys": ["Kvinner","Menn","Barn"], "values": [35,46,67]},
+		{"label":"Somalia", "keys": ["Kvinner","Menn","Barn"], "values": [32,30,52]},
+		{"label":"Etiopia", "keys": ["Kvinner","Menn","Barn"], "values": [23,21,47]},
+		{"label":"Statsløs", "keys": ["Kvinner","Menn","Barn"], "values": [15,19,36]},
+		{"label":"Albania", "keys": ["Kvinner","Menn","Barn"], "values": [10,28,36]},
+		{"label":"Iran", "keys": ["Kvinner","Menn","Barn"], "values": [13,26,34]},
+		{"label":"Marokko", "keys": ["Kvinner","Menn","Barn"], "values": [6,21,31]}
+	],
+	"sources": [
+		{"name":"Utlendingsdirektoratet (UDI)", "url": "https://www.udi.no/statistikk-og-analyse/statistikk/asylsoknader-etter-statsborgerskap-aldersgruppe-og-kjonn-2016/"}
+	]
+}
