@@ -23,13 +23,12 @@ main = Ractive.extend({
   },
 
   oninit: function () {
-    console.log('initted');
+    // console.log('initted');
   },
 
   onrender: function () {
     var that = this;
-    console.log(this);
-
+    // console.log(that);
   }
 });
 
