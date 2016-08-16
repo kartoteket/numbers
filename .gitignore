@@ -38,3 +38,4 @@ node_modules
 # Ignore the dist folder if present
 dist
 src/js/lib/d3by5-*
+/svales-notes.txt
