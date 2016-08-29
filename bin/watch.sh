@@ -55,6 +55,6 @@ else
 			node-sass --output-style uncompressed -o dist/css src/scss -w &
 			onchange 'src/index.html' -v -- cp src/index.html dist/ &
 			watchify -t aliasify -t ractivate src/js/main.js -o dist/js/main.js --debug --verbose &
-			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/ &
+			onchange 'src/assets/*.*' -v -- cp -R src/images/ dist/images/
 	fi
 fi

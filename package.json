@@ -23,8 +23,8 @@
     "build": "./bin/build.sh",
     "watch": "./bin/watch.sh",
     "lint": "eslint src/js",
-    "preinstall": "npm link ../d3by5-bar-graph && npm link ../d3by5-pie-chart",
-    "preupdate": "npm link ../d3by5-bar-graph && npm link ../d3by5-pie-chart"
+    "preinstall": "npm link ../d3by5-bar-graph && npm link ../d3by5-pie-chart && npm link ../d3by5-line-chart && npm link ../datamaps",
+    "preupdate": "npm link ../d3by5-bar-graph && npm link ../d3by5-pie-chart  && npm link ../d3by5-line-chart && npm link ../datamaps"
   },
   "aliasify": {
     "aliases": {
@@ -52,6 +52,7 @@
     "d3": "^3.5.16",
     "d3by5-bar-graph": "latest",
     "d3by5-pie-chart": "latest",
+    "d3by5-line-chart": "latest",
     "leaflet": "^1.0.0-rc.1",
     "page": "^1.7.1",
     "ractive": "^0.7.3",

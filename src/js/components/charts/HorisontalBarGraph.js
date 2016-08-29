@@ -8,97 +8,54 @@ var Ractive     = require('ractive')
 
 HorisontalBarGraph = Ractive.extend({
   template: require('./horisontalBarGraphTemplate.html'),
-  pie: null,
+  bar: null,
 
   data: function () {
-    return {
-      bar: {
-        height: 300,
-        width: 400,
-        data: [10, 20, 30, 40,10, 20, 60],
-        fillColor: 'cyan'
-      }
-    };
-  },
-
-  oninit: function () {
-    this.on('setAnchor', function (e, anchor) {
-      this.bar.anchor(anchor);
-    });
+    return {};
   },
 
   onrender: function () {
     d3.json('data/' + this.get('initialBarData'), _.bind(this.renderData, this));
-
   },
+
   /**
    * Initial render function, based on the data received from the onrender function
    * @param  {Json} result - json data (label, values, color)
    */
   renderData: function (result) {
-    var boundMethod = _.bind(this.resetData, this)
+    var boundMethod = _.bind(this.barClickHandle, this)
       , data
     ;
+
+    // Todo ad to bar options: sortBy and sortDirection (ASC, DESC)
+    result.data = _.sortBy(result.data, function(o) { return (o.values * -1); });
 
     this.bar =  barGraph()
-                    .height(300)
+                    .anchor('left')
+                    .labelPosition('outside')
+                    .labelAlign('left')
+                    .labelColor('#fff')
+                    .valuesPosition('inside')
+                    .valuesAlign('right')
+                    .valuesColor('#fff')
+                    .margin(0, 0, 0, 100)
+                    .height(200)
                     .width(300)
                     .padding(20)
-                    .fillColor('coral')
-                    .anchor('right')
+                    .fillColor('fa8400')
                     .data(result.data)
-                    .on('click', boundMethod);
+                    .on('click', boundMethod);  // todo...
 
     var caller = _.bind(this.bar.init, this.bar);
-    console.log('drawing bar');
-
     d3.select('.js-horisontal-bar-graph')
       .call(caller);
-
   },
 
-  resetData: function (d) {
-    var fileName = this.getFileName(d.data.label)
-      , data
-      , color
-      , that = this
-    ;
-
-    // load the data
-    d3.json('data/' + fileName, function (result) {
-      //Create a color scale
-      // color = d3.scale.linear()
-      //           .domain([1,result.data.length])
-      //           .interpolate(d3.interpolateHcl)
-      //           .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]); // make this in line with the color we came from
-      // // apply a color to all the datanodes
-      // data = _.map(result.data, function (d, i) {
-      //   d.color = d.color || color(i);
-      //   return d;
-      // });
-      // set the new data
-      that.pie.data(result.data);
-    });
-    console.log(d);
+  barClickHandle: function (d) {
+    console.log('Bar is clicked!', d);
   },
 
-  getFileName: function (label) {
-       // simple swithh here to get the file
-    switch (label) {
-    case 'Europa':
-      return 'europa_innvandring.json';
-    case 'Afrika':
-      return 'afrika_innvandring.json';
-    case 'Nord-Amerika':
-      return 'nordamerika_innvandring.json';
-    case 'Sør-Amerika':
-      return 'soramerika_innvandring.json';
-    case 'Asia':
-      return 'asia_innvandring.json';
-    default:
-      return this.get('initialData');
-    }
-  }
+
 });
 
 module.exports = HorisontalBarGraph;

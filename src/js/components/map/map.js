@@ -26,7 +26,7 @@ mapComponent = Ractive.extend({
   },
 
   onrender: function () {
-    console.log('rendering map')
+    console.log('rendering leaflet map');
     L.Icon.Default.imagePath = clientUrl('leafletImagePath');
     this.map = L.map(this.nodes.map, {attributionControl: false}).setView([this.get('center.lat'),this.get('center.lng')],this.get('zoom.base'));
 

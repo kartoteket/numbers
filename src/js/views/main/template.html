@@ -1,4 +1,16 @@
-<div>{{message}} is a message and another</div>
-<Map></Map>
-<PieChart initialData="{{initialData}}"></PieChart>
-<BarGraph initialData="{{initialBarData}}"></BarGraph>
+
+<header class="topbar">{{message}} is a message and another</header>
+
+<Map initialData="{{initialMapData}}"></Map>
+
+<div class="boxes left-boxes">
+    <BarGraph initialData="{{initialBarData}}"></BarGraph>
+    <LineChart initialData="{{initialLineData}}"></LineChart>
+    <PieChart initialData="{{initialData}}"></PieChart>
+</div>
+
+<div class="boxes right-boxes" style="width:400px">
+    Right side content comes here
+</div>
+
+<footer></footer>
